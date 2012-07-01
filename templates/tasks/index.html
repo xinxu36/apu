@@ -1,0 +1,11 @@
+{% if task_list %}
+    <ul>
+    {% for task in task_list %}
+        <li>{{ task.task }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks are available.</p>
+{% endif %}
+
+<a href="/tasks/new_task/">New Task</a>

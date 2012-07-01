@@ -1,0 +1,42 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>New Task</title>
+	<link type="text/css" href="{{ STATIC_PREFIX }}css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+	<script type="text/javascript" src="{{ STATIC_PREFIX }}js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_PREFIX }}js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script type="text/javascript" src="{{ STATIC_PREFIX }}js/jquery-ui-timepicker-addon.js"></script>
+
+	<style type="text/css"> 
+		
+		/* css for timepicker */
+		.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+		.ui-timepicker-div dl { text-align: left; }
+		.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+		.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+		.ui-timepicker-div td { font-size: 90%; }
+		.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+			
+		</style> 
+	<script type="text/javascript">
+			$(function(){
+				$("#id_due_date").datetimepicker();
+			});
+			
+	</script>
+</head>
+<body>
+
+<h2> Enter new task <h2>
+
+<form action="/tasks/new_task/" method="post">
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

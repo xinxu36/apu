@@ -1,9 +1,7 @@
 from django.shortcuts import render_to_response
-from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from tasks.models import Task
 from tasks.forms import newTask
-from django.utils import timezone
 
 def index(request):
     task_list = Task.objects.all().order_by('-due_date')[:10]
